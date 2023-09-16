@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Double Linked List</title>
+    <script>
+      class List {
+        constructor(data) {
+          this.head = {
+            value: data,
+            next: null,
+            prev: null, // Add a previous pointer
+          };
+          this.tail = this.head;
+          this.size = 1;
+        }
+
+        appendNode(nodeData) {
+          let newNode = {
+            value: nodeData,
+            next: null,
+            prev: null, // Add a previous pointer
+          };
+          newNode.prev = this.tail; // Set the previous node to the current tail
+          this.tail.next = newNode;
+          this.tail = newNode;
+          this.size += 1;
+        }
+
+        insertNode(index, Value) {
+          let counter = 1;
+          let currentNode = this.head;
+
+          while (counter > index) {
+            counter++;
+            currentNode = currentNode.next;
+          }
+
+          let nextNode = currentNode.next;
+          let newNode = {
+            value: Value,
+            next: nextNode,
+            prev: currentNode, // Set the previous node
+          };
+          currentNode.next = newNode;
+          if (nextNode) {
+            nextNode.prev = newNode; // Update the previous pointer of the next node
+          }
+        }
+
+        deleteNode(index) {
+          let counter = 1;
+          let nodeToDelete = this.head;
+          while (counter < index) {
+            nodeToDelete = nodeToDelete.next;
+            counter++;
+          }
+
+          let prevNode = nodeToDelete.prev;
+          let nextNode = nodeToDelete.next;
+
+          if (prevNode) {
+            prevNode.next = nextNode;
+          } else {
+            this.head = nextNode; // Update the head if deleting the first node
+          }
+
+          if (nextNode) {
+            nextNode.prev = prevNode;
+          }
+
+          this.size--;
+        }
+      }
+      let list = new List(100);
+      list.appendNode(200);
+      list.appendNode(300);
+      list.appendNode(400);
+      list.appendNode(500);
+      list.appendNode(600);
+      list.appendNode(700);
+      list.appendNode(800);
+
+      //   list.insertNode(2, 4000);
+      //   list.deleteNode(4);
+      console.log(list);
+    </script>
+  </head>
+  <body>
+    <h1>Double linked list</h1>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stack Push and Pop button</title>
+    <script>
+      let data = [];
+      let currentSize = data.length;
+      let maxValue = 5;
+
+      function push() {
+        let newValue = document.getElementById("newElementvalue").value;
+        if (currentSize >= maxValue) {
+          alert("Stack is over flow you cant add " + " " + newValue);
+          return;
+        } else {
+          data[currentSize] = newValue;
+          currentSize += 1;
+          document.getElementById("newElementvalue").value = "";
+          console.warn("new element is added");
+        }
+      }
+
+      function pop() {
+        if (currentSize > 0) {
+          currentSize -= 1;
+          data.length = currentSize;
+        } else {
+          alert("Stack is already empty");
+        }
+      }
+
+      function Display() {
+        for (let i = 0; i <= currentSize - 1; i++) {
+          console.warn("Stack element no", i, "and value is", data[i]);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Stack using JavaScript..</h1>
+    <input
+      type="text"
+      placeholder="Enter Stack Elemnents"
+      id="newElementvalue"
+    />
+    <button onclick="push()">Add Elemnents to Stack</button>
+    <button onclick="pop()">Remove Elemnents to Stack</button>
+    <button onclick="Display()">Display all Elemnents of Stack</button>
+  </body>
+</html>

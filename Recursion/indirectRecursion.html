@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indirect Recursion</title>
+    <script>
+      let money = 100;
+      let totalApple = 0;
+
+      function buyApple(x) {
+        if (x > 0) {
+          console.warn("I have", x, "RS", totalApple);
+          buyMore(x - 10);
+        } else {
+          console.warn(
+            "I don't have more money",
+            "but i have totalApple:",
+            totalApple
+          );
+        }
+      }
+      //   here buymore is function that call indirectly,
+      function buyMore(x) {
+        totalApple++;
+        buyApple(x);
+      }
+
+      buyApple(money);
+
+      // interview question
+      //   function test(x) {
+      //     if (x > 0) {
+      //       test(x - 1);
+      //     }
+      //     console.warn(x);
+      //     // out will be 0 to 5 beacuse of stack
+      //   }
+      //   let data = 5;
+      //   test(data);
+    </script>
+  </head>
+  <body>
+    <h1>test</h1>
+  </body>
+</html>

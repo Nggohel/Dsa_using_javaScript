@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Circular Linked List</title>
+    <script>
+      class Node {
+        constructor(data) {
+          this.value = data;
+          this.next = null;
+        }
+      }
+
+      class CircularLinkedList {
+        constructor(data) {
+          this.head = new Node(data);
+          this.head.next = this.head;
+          this.tail = this.head;
+          this.size = 1;
+        }
+
+        appendNode(nodeData) {
+          const newNode = new Node(nodeData);
+          newNode.next = this.head;
+          this.tail.next = newNode;
+          this.tail = newNode;
+          this.size++;
+        }
+
+        traversing() {
+          let current = this.head;
+          let count = 0;
+          while (count < this.size) {
+            current = current.next;
+            count++;
+          }
+        }
+      }
+
+      let circularList = new CircularLinkedList(100);
+      circularList.appendNode(200);
+      circularList.appendNode(300);
+      circularList.appendNode(400);
+      circularList.appendNode(500);
+      circularList.appendNode(600);
+      circularList.appendNode(700);
+      circularList.appendNode(800);
+
+      circularList.traversing();
+      console.log(circularList);
+    </script>
+  </head>
+  <body>
+    <h1>Circular Linked List</h1>
+  </body>
+</html>

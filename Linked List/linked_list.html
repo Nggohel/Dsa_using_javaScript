@@ -1,0 +1,141 @@
+<!-- with opps  -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linked List</title>
+    <script>
+      // make single link list
+      class List {
+        constructor(data) {
+          this.head = {
+            value: data,
+            next: null,
+          };
+          this.tail = this.head;
+          this.size = 1;
+        }
+
+        appendNode(nodeData) {
+          let newNode = {
+            value: nodeData,
+            next: null,
+          };
+          this.tail.next = newNode;
+          this.tail = newNode;
+          this.size += 1;
+        }
+
+        // traversing in single link list
+
+        traversing() {
+          let counter = 0;
+          let currentNode = this.head;
+          while (counter < this.size) {
+            currentNode = currentNode.next;
+            counter++;
+          }
+        }
+
+        insertNode(index, Value) {
+          let counter = 1;
+          let currentNode = this.head;
+
+          while (counter > index) {
+            counter++;
+            currentNode = currentNode.next;
+          }
+          let nextNode = currentNode.next;
+          currentNode.next = {
+            value: Value,
+            next: nextNode,
+          };
+        }
+
+        deleteNode(index) {
+          let counter = 1;
+          let lead = this.head;
+          if (index === 1) {
+            this.head = this.head.next;
+          } else {
+            // index-1 for find lead node
+            while (counter < index - 1) {
+              lead = lead.next;
+              counter++;
+            }
+            // here lead.next se we go that node that we want to delete
+            let nextNode = lead.next.next;
+            lead.next = nextNode;
+            console.warn(lead);
+          }
+        }
+      }
+
+      let list = new List(100);
+      list.appendNode(200);
+      list.appendNode(300);
+      list.appendNode(400);
+      list.appendNode(500);
+      list.appendNode(600);
+      list.appendNode(700);
+      list.appendNode(800);
+      list.traversing();
+      list.insertNode(2, 4000);
+      //   remove 4th one 400 vala
+      //   list.deleteNode(4);
+
+      //   list.head.value = 150;
+      //   list.head.next.value = 450;
+      console.log(list);
+    </script>
+  </head>
+  <body>
+    <h1>Linked List</h1>
+  </body>
+</html>
+
+<!-- with function -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linked List</title>
+  </head>
+  <body>
+    <h1>Linked List</h1>
+    <script>
+      function createNode(data) {
+        return {
+          value: data,
+          next: null,
+        };
+      }
+
+      function createList(data) {
+        const head = createNode(data);
+        return {
+          head,
+          tail: head,
+          size: 1,
+          appendNode: function (nodeData) {
+            const newNode = createNode(nodeData);
+            this.tail.next = newNode;
+            this.tail = newNode;
+            this.size++;
+          },
+        };
+      }
+
+      const list = createList(100);
+      list.appendNode(200);
+      list.appendNode(300);
+      list.appendNode(400);
+      list.appendNode(500);
+      list.appendNode(600);
+      console.log(list);
+    </script>
+  </body>
+</html> -->

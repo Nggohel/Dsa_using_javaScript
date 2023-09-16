@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stack</title>
+    <script>
+      let data = [];
+      let currentSize = data.length;
+      let maxValue = 5;
+
+      function push(newValue) {
+        if (currentSize >= maxValue) {
+          alert("Stack is full you can not add" + " " + newValue);
+          return;
+        }
+        data[currentSize] = newValue;
+        currentSize += 1;
+      }
+
+      function pop() {
+        if (currentSize > 0) {
+          currentSize -= 1;
+          data.length = currentSize;
+        } else {
+          alert("Stack is already empty");
+        }
+      }
+
+      push(5);
+      push(10);
+      push(20);
+      push(30);
+
+      //  why they coming in arry after alert, beacuse we dont use return thier
+      push(40);
+      push(50);
+      push(60);
+      push(70);
+      //   pop();
+      //   pop();
+      //   pop();
+      //   pop();
+      console.warn(data);
+    </script>
+  </head>
+  <body>
+    <h1>Stack using JavaScript..</h1>
+  </body>
+</html>

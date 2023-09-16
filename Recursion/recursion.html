@@ -1,0 +1,41 @@
+<!-- recursion matlan khud ko bar bar call karna -->
+<!-- we initial we call one time from outside -->
+<!-- we have base condition their -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Recursion</title>
+    <script>
+      // factorial withiout loop how to find??
+      function factorial(item) {
+        // base limit or breck limit
+        if (item == 0) {
+          return 1;
+        }
+        // continous recursion call
+        return item * factorial(item - 1);
+      }
+      let data = 5;
+      console.warn(factorial(data));
+    </script>
+  </head>
+  <body>
+    <h1>Recursion</h1>
+  </body>
+</html>
+
+<!-- // function apple(x){
+  //     console.warn(x)
+  with out condition its infinite loop
+
+  //     if(x<10){
+  //         apple(x+1);
+  //     }
+
+  // }
+  // let data =0;
+  // apple(data);
+
+  // 5 -->
+
+<!-- console.warn(5*factorial(5-1)*factorial(4-1)*factorial(3-1)*factorial(2-1)*factorial(1-1) -->

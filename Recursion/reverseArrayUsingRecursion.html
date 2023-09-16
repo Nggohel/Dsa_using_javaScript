@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reverse Array Using Recursion</title>
+    <script>
+      // 30 20 10 => 10 20 30
+      // using Swaping
+      // For by default we have a function : let item =[100,200,300,400],
+      // and we use item.reverse() then it will reverse the array
+      let data = [5, 12, 65, 0, 89];
+      let temp;
+      function customReverse(data, start, end) {
+        console.warn(data);
+        if (start <= end) {
+          temp = data[start];
+          data[start] = data[end];
+          data[end] = temp;
+          customReverse(data, start + 1, end - 1);
+        }
+      }
+      customReverse(data, 0, data.length - 1);
+    </script>
+  </head>
+  <body>
+    <h1>Reverse Array Using Recursion</h1>
+  </body>
+</html>

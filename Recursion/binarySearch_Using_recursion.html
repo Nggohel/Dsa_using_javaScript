@@ -1,0 +1,39 @@
+<!-- limitation only work for assending data -->
+<!-- limitation only work for assending data -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binary serch using Recursion</title>
+    <script>
+      let data = [10, 15, 18, 34, 67, 70, 89];
+      //   let data = [89, 70, 67, 34, 18, 15, 10]; not working for desending order to
+      let start = 0;
+      let end = data.length - 1;
+      let find = 67;
+      let position = undefined;
+      function recursiveBinary(data, start, end) {
+        mid = Math.floor((start + end) / 2);
+        // this work as base line here
+        if (data[mid] === find) {
+          position = mid;
+          return true;
+        }
+        // find is larger so mid ke bad pe hi milega then start condition is change
+        else if (data[mid] < find) {
+          recursiveBinary(data, mid + 1, end);
+        }
+        // nahi agar find is smaller then mid then voh mid se pehele milege
+        else {
+          recursiveBinary(data, start, mid - 1);
+        }
+      }
+      recursiveBinary(data, start, end);
+      console.warn(position);
+    </script>
+  </head>
+  <body>
+    <h1>Binary serch using Recursion</h1>
+  </body>
+</html>
