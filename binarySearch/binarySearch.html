@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peak element in Rotated Array</title>
+    <script>
+      //its modified binary search
+      //if start is smaller than mid then that part is sorted so we called left part is sorted
+      //agar yeh nahi then mid to end part is sorted then
+      // we check key is lied between start and mid or end in mid
+
+      function findPeakElement(data, key) {
+        let start = 0;
+        let end = data.length - 1;
+
+        while (start <= end) {
+          let mid = Math.floor((start + end) / 2);
+          if (data[mid] == key) {
+            return mid;
+          } else if (data[start] < data[mid]) {
+            if (key >= data[start] && key < data[mid]) {
+              end = mid - 1;
+            } else {
+              start = mid + 1;
+            }
+          } else {
+            if (key > data[mid] && key < data[end]) {
+              start = mid + 1;
+            } else {
+              end = mid - 1;
+            }
+          }
+        }
+        return undefined;
+      }
+      const data = [4, 5, 6, 7, 0, 1, 2];
+      const findKeyIndex = findPeakElement(data, 10);
+      console.log(findKeyIndex);
+    </script>
+  </head>
+  <body>
+    <h1>Peak element in Rotated Array</h1>
+  </body>
+</html>
+
+<!-- // function findPeakElement(data) { // let start = 0; // let end = data.length -
+1; // while (start < end) { // const mid = Math.floor((start + end) / 2); // if
+(data[mid] > data[mid + 1]) { // end = mid; // } else { // start = mid + 1; // }
+// } // return start; // } // const data = [4, 5, 6, 7, 0, 1, 2]; // const
+PeakIndex = findPeakElement(data); // console.log(PeakIndex); -->
