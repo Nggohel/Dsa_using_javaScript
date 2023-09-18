@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merge Two in Array with While Loop</title>
+    <script>
+      // arrays should be sorted for this method
+      let data1 = [3, 7, 12, 34, 56, 90];
+      let data2 = [4, 9, 25, 45];
+      let data3 = [];
+      let i = 0;
+      let j = 0;
+      let k = 0;
+      while (i < data1.length && j < data2.length) {
+        if (data1[i] < data2[j]) {
+          data3[k] = data1[i];
+          i++;
+        } else {
+          data3[k] = data2[j];
+          j++;
+        }
+        k++;
+      }
+      while (i < data1.length) {
+        data3[k] = data1[i];
+        i++;
+        k++;
+      }
+      while (j < data2.length) {
+        data3[k] = data2[j];
+        j++;
+        k++;
+      }
+      console.log(data3);
+    </script>
+  </head>
+  <body>
+    <h1>Merge Two in Array with While Loop</h1>
+  </body>
+</html>

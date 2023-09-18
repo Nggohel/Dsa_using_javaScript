@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MergeTwoArray</title>
+    <script>
+      let data = [3, 7, 12, 34, 56, 90];
+      let data2 = [20, 30, 40, 50];
+      let data3 = [];
+      for (i = 0; i < data.length; i++) {
+        data3[i] = data[i];
+      }
+      console.warn(data3);
+      for (i = 0; i < data2.length; i++) {
+        // data.length + i using for stopping overriding
+        data3[data.length + i] = data2[i];
+      }
+
+      //   defualt function
+      // let data3 = [...data,...data2]
+    </script>
+  </head>
+  <body>
+    <h1>MergeTwoArray</h1>
+  </body>
+</html>
