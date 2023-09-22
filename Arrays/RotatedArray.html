@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rotated Array</title>
+    <script>
+      function rotateArray(arr, k) {
+        const n = arr.length;
+        console.log(arr);
+        // console.log(n);
+        k = k % n; // Ensure k is within the range of array length
+
+        // Reverse the first n-k elements
+        // 0  5-4-1=0,
+        reverse(arr, 0, n - k - 1);
+
+        // Reverse the remaining k elements
+        // arr,1,4
+        reverse(arr, n - k, n - 1);
+
+        // Reverse the entire array
+        reverse(arr, 0, n - 1);
+      }
+
+      function reverse(arr, start, end) {
+        while (start < end) {
+          console.log(arr[start]);
+          console.log(arr[end]);
+          [arr[start], arr[end]] = [arr[end], arr[start]];
+
+          start++;
+          end--;
+          console.log(arr[start]);
+          console.log(arr[end]);
+        }
+      }
+
+      // Example usage:
+      const arr = [1, 2, 3, 4, 5];
+      rotateArray(arr, 4); // jitani k ni value hase etalo frist element pacho jase
+      console.log(arr);
+    </script>
+  </head>
+  <body>
+    <h1>Rotated Array</h1>
+  </body>
+</html>
+
+<!-- what is next.js ?? how to install in local? -->
+<!-- headers in Api -->
